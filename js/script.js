@@ -37,7 +37,6 @@ function showPage(list, page) {
    // loop over the length of the `list` parameter
    for ( let i = 0; i < list.length; i++ ) {
       // inside the loop create a conditional to display the proper students
-      // inside the conditional:
          // create the elements needed to display the student information
          if( i >= startIndex && i < endIndex) {
             studentList.innerHTML += `
@@ -69,7 +68,7 @@ This function will create and insert/append the elements needed for the paginati
 */
 function addPagination(list) {
    // create a variable to calculate the number of pages needed
-   let numBtn = list.length / 9;
+   let numOfPages = Math.ceil(list.length / 9);
  
    // select the element with a class of `link-list` and assign it to a variable
   let linkList = document.querySelector('.link-list');
@@ -80,11 +79,10 @@ function addPagination(list) {
  
    // loop over the number of pages needed
      // create the elements needed to display the pagination button
-     // insert the above elements
-     for ( let i = 0; i < numBtn; i++ ) {
+     for ( let i = 0; i < numOfPages; i++ ) {
         linkList.innerHTML  += `
          <li>
-           <button type="button" class="active">${i + 1}</button>
+           <button type="button">${i + 1}</button>
          </li>
         
   
@@ -106,9 +104,10 @@ function addPagination(list) {
          for ( let i = 0; i < btns.length; i++ ) {
             // remove the "active" class from the previous button
              // add the active class to the clicked button
-            btns[0].classList = '';
-            e.target.classList.add('active');
+            btns[i].classList = '';
+           
          };
+         e.target.classList.add('active');
          let pgNum = e.target.textContent;
          // call the showPage function passing the `list` parameter and page to display as arguments
          showPage(list, pgNum);
@@ -119,6 +118,14 @@ function addPagination(list) {
    });
 };
      
+
+/*create a search function that will search for student names based on user input and return matches
+function studentSearch() {
+   const searchBar = document.getElementsById('search');
+   const searchBtn = document.getElementsById('submit');
+   //store matches from search
+   let matches = []; 
+};*/
 
 
 
