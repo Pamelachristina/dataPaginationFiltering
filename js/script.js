@@ -81,7 +81,7 @@ function addPagination(list) {
    // loop over the number of pages needed
      // create the elements needed to display the pagination button
      // insert the above elements
-     for ( let i = 0; i < numBtn.length; i++ ) {
+     for ( let i = 0; i < numBtn; i++ ) {
         linkList.innerHTML  += `
          <li>
            <button type="button" class="active">${i + 1}</button>
